@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>For My Love ❤️</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes:wght@400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+</head>
+<body>
+    <div class="vinyl-player">
+        <div class="song-info">
+            <div class="now-playing">Now Playing</div>
+            <div class="song-title">She's Mine Pt.2</div>
+            <div class="artist">J. Cole</div>
+        </div>
+        <div class="vinyl-disc"></div>
+    </div>
+
+    <div id="loading">
+        <div class="heart-loader"></div>
+        <span>Loading our love story...</span>
+    </div>
+
+    <main class="experience">
+        <section id="intro" class="section active">
+            <div class="floating-heart"></div>
+            <div class="intro-text">
+                <h1>For My Love,</h1>
+                <p>Click the heart to start</p>
+            </div>
+        </section>
+
+        <section id="envelope" class="section">
+            <div class="envelope-3d">
+                <div class="envelope-wrap">
+                    <div class="envelope-front">
+                        <div class="heart-seal"></div>
+                    </div>
+                    <div class="envelope-back"></div>
+                    <div class="letter">
+                        <div class="letter-content">
+                            <h2>For my Wife,</h2>
+                            <div class="message">
+                                 Happy Valentines Day baby!! i believe this is one of our first of many that wil come, unfornately i'm not able to spend the day with you, but regardless I want you know to know that i am thankful everyday that you're in my life, we've had our disagreements and had moments that weren't really our best, but I need you to know regardless of whatever happens, it will not stop me from loving you, wanting to spend time with you and grow with you as person. I really loved spending time with you last week, i really did have fun and I felt at peace with being around you. It felt so good to be able to experience your love firsthand in person, the way you get cranky when you're sleepy, getting to wake up to your pretty face, and overall just laughing together. You really bring out my inner child, seeing how easy it is to be myself around you, and i really hope i make you feel the same as well. I want to work to earn your trust back especially after certain things i said, that i did not mean and again i am so so so sorry rori, you're not deserving of that treatment at all and i promise i will do better and never make those mistakes ever again. I love you so much Rori.
+                            </div>
+                            <div class="signature">
+                                <span>always yours,</span>
+                                <span>Nini</span>
+                            </div>
+                        </div>
+                        <button class="continue-btn">nexttt</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="section">
+            <div class="cinema-gallery">
+                <!-- Photos will be added dynamically via JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <audio id="bgMusic" loop>
+        <source src="./J. Cole - She's Mine Pt. 2 (Lyrics).mp3" type="audio/mp3">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
