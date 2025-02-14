@@ -1,0 +1,327 @@
+:root {
+    --primary: #ff3366;
+    --secondary: #ff6b9b;
+    --accent: #ff8fb1;
+    --dark: #2a0a1b;
+    --light: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: radial-gradient(circle at center, var(--dark), #000);
+    min-height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+}
+
+.vinyl-player {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 100;
+    color: var(--light);
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    backdrop-filter: blur(5px);
+}
+
+.vinyl-disc {
+    width: 60px;
+    height: 60px;
+    background: #333;
+    border-radius: 50%;
+    border: 2px solid var(--light);
+    animation: spin 4s linear infinite;
+    position: relative;
+}
+
+.vinyl-disc::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: var(--light);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.song-info {
+    text-align: right;
+}
+
+.now-playing {
+    font-size: 0.8em;
+    opacity: 0.8;
+    color: var(--accent);
+}
+
+.song-title {
+    font-weight: 500;
+    font-size: 1.1em;
+}
+
+.artist {
+    font-size: 0.9em;
+    opacity: 0.9;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+#loading {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: var(--dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    color: var(--light);
+    gap: 20px;
+    top: 0;
+}
+
+.heart-loader {
+    width: 100px;
+    height: 100px;
+    background: var(--primary);
+    -webkit-mask: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 88.9C49.2 88.9 48.4 88.6 47.8 88C42.8 83.3 15 57.6 15 36.6C15 23.8 24.5 13.4 36.3 13.4C42.4 13.4 48.2 16.2 52 21.1C55.8 16.2 61.6 13.4 67.7 13.4C79.5 13.4 89 23.8 89 36.6C89 57.6 61.2 83.3 56.2 88C55.6 88.6 54.8 88.9 54 88.9H50Z' fill='black'/%3E%3C/svg%3E") center/contain no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 88.9C49.2 88.9 48.4 88.6 47.8 88C42.8 83.3 15 57.6 15 36.6C15 23.8 24.5 13.4 36.3 13.4C42.4 13.4 48.2 16.2 52 21.1C55.8 16.2 61.6 13.4 67.7 13.4C79.5 13.4 89 23.8 89 36.6C89 57.6 61.2 83.3 56.2 88C55.6 88.6 54.8 88.9 54 88.9H50Z' fill='black'/%3E%3C/svg%3E") center/contain no-repeat;
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.2); }
+    50% { transform: scale(1); }
+    75% { transform: scale(1.2); }
+}
+
+.section {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 1s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    top: 0;
+    left: 0;
+}
+
+.section.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+#intro .floating-heart {
+    width: 150px;
+    height: 150px;
+    background: var(--primary);
+    -webkit-mask: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 88.9C49.2 88.9 48.4 88.6 47.8 88C42.8 83.3 15 57.6 15 36.6C15 23.8 24.5 13.4 36.3 13.4C42.4 13.4 48.2 16.2 52 21.1C55.8 16.2 61.6 13.4 67.7 13.4C79.5 13.4 89 23.8 89 36.6C89 57.6 61.2 83.3 56.2 88C55.6 88.6 54.8 88.9 54 88.9H50Z' fill='black'/%3E%3C/svg%3E") center/contain no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 88.9C49.2 88.9 48.4 88.6 47.8 88C42.8 83.3 15 57.6 15 36.6C15 23.8 24.5 13.4 36.3 13.4C42.4 13.4 48.2 16.2 52 21.1C55.8 16.2 61.6 13.4 67.7 13.4C79.5 13.4 89 23.8 89 36.6C89 57.6 61.2 83.3 56.2 88C55.6 88.6 54.8 88.9 54 88.9H50Z' fill='black'/%3E%3C/svg%3E") center/contain no-repeat;
+    cursor: pointer;
+    animation: float 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 30px rgba(255, 51, 102, 0.5));
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+.intro-text {
+    margin-top: 50px;
+    text-align: center;
+    color: var(--light);
+}
+
+.intro-text h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 4em;
+    margin-bottom: 20px;
+    text-shadow: 0 0 20px rgba(255, 51, 102, 0.5);
+}
+
+.envelope-3d {
+    width: 800px;
+    height: auto;
+    min-height: 800px;
+    perspective: 1000px;
+}
+
+.envelope-wrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.envelope-wrap.flipped {
+    transform: rotateY(180deg);
+}
+
+.envelope-front, .envelope-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.heart-seal {
+    width: 80px;
+    height: 80px;
+    background: var(--light);
+    -webkit-mask: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 88.9C49.2 88.9 48.4 88.6 47.8 88C42.8 83.3 15 57.6 15 36.6C15 23.8 24.5 13.4 36.3 13.4C42.4 13.4 48.2 16.2 52 21.1C55.8 16.2 61.6 13.4 67.7 13.4C79.5 13.4 89 23.8 89 36.6C89 57.6 61.2 83.3 56.2 88C55.6 88.6 54.8 88.9 54 88.9H50Z' fill='black'/%3E%3C/svg%3E") center/contain no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 88.9C49.2 88.9 48.4 88.6 47.8 88C42.8 83.3 15 57.6 15 36.6C15 23.8 24.5 13.4 36.3 13.4C42.4 13.4 48.2 16.2 52 21.1C55.8 16.2 61.6 13.4 67.7 13.4C79.5 13.4 89 23.8 89 36.6C89 57.6 61.2 83.3 56.2 88C55.6 88.6 54.8 88.9 54 88.9H50Z' fill='black'/%3E%3C/svg%3E") center/contain no-repeat;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.letter {
+    position: absolute;
+    width: 100%;
+    height: fit-content;
+    min-height: 100%;
+    background: linear-gradient(#fff 29px, #ccc 1px);
+    background-size: 100% 30px;
+    padding: 50px 70px;
+    transform: rotateY(180deg);
+    border-radius: 5px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.letter::before {
+    content: '';
+    position: absolute;
+    left: 55px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #ff9eaf;
+}
+
+.letter-content {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.letter h2 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5em;
+    color: var(--primary);
+    text-align: center;
+    margin-bottom: 30px;
+    line-height: 1;
+}
+
+.message {
+    font-size: 1.1em;
+    line-height: 30px;
+    padding-left: 25px;
+}
+
+.signature {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2em;
+    color: var(--primary);
+    text-align: right;
+    margin-top: 20px;
+    line-height: 1;
+}
+
+.continue-btn {
+    padding: 15px 30px;
+    background: var(--primary);
+    color: var(--light);
+    border: none;
+    border-radius: 30px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 20px auto 0;
+    box-shadow: 0 5px 15px rgba(255, 51, 102, 0.3);
+}
+
+.continue-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(255, 51, 102, 0.5);
+}
+
+.cinema-gallery {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 50px;
+    perspective: 1000px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.polaroid {
+    width: 250px;
+    background: var(--light);
+    padding: 15px 15px 60px 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transform: scale(0.5);
+    opacity: 0;
+    transform-origin: center;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    rotate: calc(var(--rotation) * 1deg);
+}
+
+.polaroid.show {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.polaroid img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.polaroid .caption {
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.5em;
+    color: var(--dark);
+    text-align: center;
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    left: 0;
+}
