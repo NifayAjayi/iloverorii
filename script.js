@@ -41,13 +41,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const gallery = document.querySelector('.cinema-gallery');
         const photos = [
             { url: './IMG_7861.jpeg', caption: 'Our First Date' },
-            { url: './IMG_7757.jpeg', caption: 'Summer Adventures' },
-            { url: './IMG_7156.jpeg', caption: 'Beach Day' },
-            { url: './IMG_7622.jpeg', caption: 'City Lights' },
-            { url: './FullSizeRender.jpeg', caption: 'Cozy Evening' },
-            { url: './IMG_7863.jpeg', caption: 'Mountain Hike' },
-            { url: './IMG_7762.jpeg', caption: 'Sunset Kiss' },
-            { url: './IMG_7778.jpeg', caption: 'Dance Night' }
+            { url: './IMG_7757.jpeg', caption: '' },
+            { url: './IMG_7156.jpeg', caption: ' },
+            { url: './IMG_7622.jpeg', caption: ' },
+            { url: './FullSizeRender.jpeg', caption: '' },
+            { url: './IMG_7863.jpeg', caption: ' },
+            { url: './IMG_7762.jpeg', caption: '' },
+            { url: './IMG_7778.jpeg', caption: '' }
         ];
 
         photos.forEach((photo, index) => {
